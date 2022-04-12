@@ -9,3 +9,4 @@ C:\Users\Student\Source\Repos\alex0000000001\homework\obj\Debug\homework.csproj.
 C:\Users\Student\Source\Repos\alex0000000001\homework\obj\Debug\homework.exe
 C:\Users\Student\Source\Repos\alex0000000001\homework\obj\Debug\homework.pdb
 C:\Users\Student\Source\Repos\alex0000000001\homework\obj\Debug\homework.FrmCategoryProducts.resources
+C:\Users\Student\Source\Repos\alex0000000001\homework\obj\Debug\homework.FrmProducts.resources

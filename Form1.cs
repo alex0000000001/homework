@@ -185,7 +185,6 @@ namespace homework
         {
             lblResult.Text = "";
             int count = 0;
-            int odd;
             int[] Numbers = { 1, 5, 6, 8, 7, 97, 54, 887, 65, 578 };
             for (int i = 0; i < Numbers.Length; i++)
             {
