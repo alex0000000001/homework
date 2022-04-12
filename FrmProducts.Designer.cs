@@ -63,6 +63,8 @@ namespace homework
             this.productsTableAdapter1 = new homework.NWDataSetTableAdapters.ProductsTableAdapter();
             this.categoriesTableAdapter1 = new homework.NWDataSetTableAdapters.CategoriesTableAdapter();
             this.nwDataSet1 = new homework.NWDataSet();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
@@ -367,11 +369,33 @@ namespace homework
             this.nwDataSet1.DataSetName = "NWDataSet";
             this.nwDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(622, 143);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 112;
+            this.button1.Text = "作業1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(721, 143);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 113;
+            this.button4.Text = "作業2";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // FrmProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(998, 658);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.button2);
@@ -437,5 +461,7 @@ namespace homework
         private NWDataSetTableAdapters.CategoriesTableAdapter categoriesTableAdapter1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private NWDataSet nwDataSet1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button4;
     }
 }
