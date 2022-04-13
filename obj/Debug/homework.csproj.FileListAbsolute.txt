@@ -22,3 +22,16 @@ C:\ADO.NET\作業區\homework\obj\Debug\homework.csproj.GenerateResource.cache
 C:\ADO.NET\作業區\homework\obj\Debug\homework.csproj.CoreCompileInputs.cache
 C:\ADO.NET\作業區\homework\obj\Debug\homework.exe
 C:\ADO.NET\作業區\homework\obj\Debug\homework.pdb
+C:\ADO.NET\作業區\alex0000000001\homework\bin\Debug\homework.exe.config
+C:\ADO.NET\作業區\alex0000000001\homework\bin\Debug\homework.exe
+C:\ADO.NET\作業區\alex0000000001\homework\bin\Debug\homework.pdb
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.csprojAssemblyReference.cache
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.Form1.resources
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmCategoryProducts.resources
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmProducts.resources
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.Properties.Resources.resources
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.csproj.GenerateResource.cache
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.csproj.CoreCompileInputs.cache
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.exe
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.pdb
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmDataSet結構.resources

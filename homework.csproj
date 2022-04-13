@@ -58,6 +58,12 @@
     <Compile Include="FrmCategoryProducts.Designer.cs">
       <DependentUpon>FrmCategoryProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDataSet結構.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDataSet結構.Designer.cs">
+      <DependentUpon>FrmDataSet結構.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProducts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCategoryProducts.resx">
       <DependentUpon>FrmCategoryProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDataSet結構.resx">
+      <DependentUpon>FrmDataSet結構.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProducts.resx">
       <DependentUpon>FrmProducts.cs</DependentUpon>
