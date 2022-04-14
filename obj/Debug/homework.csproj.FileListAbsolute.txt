@@ -35,3 +35,8 @@ C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.csproj.CoreCompi
 C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.exe
 C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.pdb
 C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmDataSet結構.resources
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.Frm_CityPhoto.resources
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmAdventureWork.resources
+C:\ADO.NET\作業區\alex0000000001\homework\bin\Debug\Photo.mdf
+C:\ADO.NET\作業區\alex0000000001\homework\bin\Debug\Photo_log.ldf
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmShow.resources

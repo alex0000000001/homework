@@ -21,7 +21,7 @@ namespace homework
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmDataSet結構());
+            Application.Run(new Frm_CityPhoto());
         }
     }
 }
