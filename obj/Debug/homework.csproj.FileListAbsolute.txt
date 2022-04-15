@@ -40,3 +40,6 @@ C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmAdventureWork
 C:\ADO.NET\作業區\alex0000000001\homework\bin\Debug\Photo.mdf
 C:\ADO.NET\作業區\alex0000000001\homework\bin\Debug\Photo_log.ldf
 C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmShow.resources
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmLogon.resources
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmCustomers.resources
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\ADO.NET.FrmImageFlags.resources

@@ -89,11 +89,29 @@
     <Compile Include="FrmCategoryProducts.Designer.cs">
       <DependentUpon>FrmCategoryProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCustomers.Designer.cs">
+      <DependentUpon>FrmCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDataSet結構.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDataSet結構.Designer.cs">
       <DependentUpon>FrmDataSet結構.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImageFlags.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImageFlags.designer.cs">
+      <DependentUpon>FrmImageFlags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogon.Designer.cs">
+      <DependentUpon>FrmLogon.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProducts.cs">
       <SubType>Form</SubType>
@@ -129,8 +147,17 @@
     <EmbeddedResource Include="FrmCategoryProducts.resx">
       <DependentUpon>FrmCategoryProducts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCustomers.resx">
+      <DependentUpon>FrmCustomers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDataSet結構.resx">
       <DependentUpon>FrmDataSet結構.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImageFlags.resx">
+      <DependentUpon>FrmImageFlags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogon.resx">
+      <DependentUpon>FrmLogon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProducts.resx">
       <DependentUpon>FrmProducts.cs</DependentUpon>
@@ -149,6 +176,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="AdDateSet.xsc">
       <DependentUpon>AdDateSet.xsd</DependentUpon>
@@ -198,12 +226,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Photo.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Photo_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>Photo.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\5e95b9374a437.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

@@ -39,6 +39,10 @@ namespace homework
             {     
                 this.photoPictureBox.Image = Image.FromFile(this.openFileDialog1.FileName);
             }
+            else
+            {
+                MessageBox.Show("Cancel");
+            }
 
         }
     }
