@@ -24,9 +24,6 @@ namespace homework
 
         }
 
-
-
-
         //1. All Country
         //2. ContextMenuStrip2
 
@@ -93,24 +90,27 @@ namespace homework
                         }
 
                     }
-                    string city = DataReader[8].ToString();
 
+                    string city = DataReader[8].ToString();
+                    ListViewGroup group ;
                     if (this.listView1.Groups[city] == null)
                     {
-                        ListViewGroup group = this.listView1.Groups.Add(city, city);
+
                         // todo;
-                        int count = ;
-                        group.Tag = 0;
+
+                        group = this.listView1.Groups.Add(city, city); // 創組 , 用string key 分辨 
                         lvi.Group = group;
                     }
                     else
                     {
-                        ListViewGroup group = this.listView1.Groups[city];
-                        lvi.Group = group;
+                        group = this.listView1.Groups[city];              
+                        lvi.Group = group;  // 分組
+                       // group.Tag = group.Items.Count;
                     }
-                   this.listView1.Groups[city].Tag = 
-                    
-                }
+                    //group.Tag = group.Items.Count; 
+                    //this.listView1.Groups[city].Tag = group.Tag;
+                    group.Header = city.ToString()+ "( "+group.Items.Count+ " )";
+                } 
             }
         }
 
@@ -253,9 +253,6 @@ namespace homework
         private void FrmCustomers_Load(object sender, EventArgs e)
         {
             comboBox1.Text = "請選擇國家";
-
-
-
 
         }
     }
