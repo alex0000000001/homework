@@ -26,7 +26,7 @@ namespace homework
                 string username = UsernameTextBox.Text;
                 string password = PasswordTextBox.Text;
                 SqlConnection conn = null;
-                using (conn = new SqlConnection(Settings.Default.NorthwindConnectionString))
+                using (conn = new SqlConnection(Settings.Default.PhotoConnectionString))
                 {
                     SqlCommand Command = new SqlCommand();
 
@@ -66,7 +66,7 @@ namespace homework
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
             SqlConnection conn = null;
-            using (conn = new SqlConnection(Settings.Default.NorthwindConnectionString))
+            using (conn = new SqlConnection(Settings.Default.PhotoConnectionString))
             {
                 SqlCommand Command = new SqlCommand();
                 Command.CommandText = "Select * from YourMember where userName= @UserName and password = @Password";

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SortOrder = System.Windows.Forms.SortOrder;
 
 namespace homework
 {
@@ -73,14 +74,7 @@ namespace homework
                 {
                     ListViewItem lvi = this.listView1.Items.Add(DataReader[0].ToString());
                     lvi.ImageIndex = r.Next(0, this.ImageList1.Images.Count);
-                    if (lvi.Index % 2 == 0)
-                    {
-                        lvi.BackColor = Color.AliceBlue;
-                    }
-                    else
-                    {
-                        lvi.BackColor = Color.LightGreen;
-                    }
+                   
                     for (int i = 1; i <= DataReader.FieldCount - 1; i++)
                     {
                         if (DataReader.IsDBNull(i))
@@ -94,22 +88,31 @@ namespace homework
 
                     }
                     string city = DataReader[8].ToString();
-
+                    ListViewGroup group;
                     if (this.listView1.Groups[city] == null)
                     {
-                        ListViewGroup group = this.listView1.Groups.Add(city, city);
-                        // todo;
-                        int count = ;
-                        group.Tag = 0;
+                        group = this.listView1.Groups.Add(city, city); // 創組 , 用string key 分辨 
                         lvi.Group = group;
                     }
                     else
                     {
-                        ListViewGroup group = this.listView1.Groups[city];
-                        lvi.Group = group;
+                        group = this.listView1.Groups[city];
+                        lvi.Group = group;  // 分組
+                                            // group.Tag = group.Items.Count;
+                        
                     }
-                   this.listView1.Groups[city].Tag = 
-                    
+                    //group.Tag = group.Items.Count; 
+                    //this.listView1.Groups[city].Tag = group.Tag;
+                    group.Header = city.ToString() + "( " + group.Items.Count + " )";
+
+                    if (lvi.Index % 2 == 0)
+                    {
+                        lvi.BackColor = Color.AliceBlue;
+                    }
+                    else
+                    {
+                        lvi.BackColor = Color.LightGreen;
+                    }
                 }
             }
         }
@@ -253,10 +256,37 @@ namespace homework
         private void FrmCustomers_Load(object sender, EventArgs e)
         {
             comboBox1.Text = "請選擇國家";
+        }
 
+        private void detailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.View = View.Details;
+        }
 
+        private void largerIconToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.View = View.LargeIcon;
+        }
 
+        private void smallIconToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.View = View.SmallIcon;
+        }
 
+        private void aSCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.Sorting = SortOrder.Ascending;
+        }
+
+        private void dESCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.Sorting = SortOrder.Descending;
+        }
+
+        private void groupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            LoadDataToListView1();
         }
     }
 }

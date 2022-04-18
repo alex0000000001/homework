@@ -36,7 +36,15 @@ namespace homework
             this.listView1 = new System.Windows.Forms.ListView();
             this.ImageList1 = new System.Windows.Forms.ImageList(this.components);
             this.ImageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.detailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.largerIconToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.smallIconToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderByToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aSCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dESCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -63,6 +71,7 @@ namespace homework
             // 
             // listView1
             // 
+            this.listView1.ContextMenuStrip = this.contextMenuStrip2;
             this.listView1.Font = new System.Drawing.Font("標楷體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(47, 103);
@@ -120,26 +129,81 @@ namespace homework
             this.ImageList2.Images.SetKeyName(17, "FLGFIN.ICO");
             this.ImageList2.Images.SetKeyName(18, "FLGFRAN.ICO");
             // 
-            // richTextBox1
+            // contextMenuStrip2
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(467, 27);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(628, 54);
-            this.richTextBox1.TabIndex = 8;
-            this.richTextBox1.Text = "";
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detailsToolStripMenuItem,
+            this.largerIconToolStripMenuItem,
+            this.smallIconToolStripMenuItem,
+            this.orderByToolStripMenuItem,
+            this.groupToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(164, 124);
+            // 
+            // detailsToolStripMenuItem
+            // 
+            this.detailsToolStripMenuItem.Name = "detailsToolStripMenuItem";
+            this.detailsToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.detailsToolStripMenuItem.Text = "Details View";
+            this.detailsToolStripMenuItem.Click += new System.EventHandler(this.detailsToolStripMenuItem_Click);
+            // 
+            // largerIconToolStripMenuItem
+            // 
+            this.largerIconToolStripMenuItem.Name = "largerIconToolStripMenuItem";
+            this.largerIconToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.largerIconToolStripMenuItem.Text = "Larger Icon";
+            this.largerIconToolStripMenuItem.Click += new System.EventHandler(this.largerIconToolStripMenuItem_Click);
+            // 
+            // smallIconToolStripMenuItem
+            // 
+            this.smallIconToolStripMenuItem.Name = "smallIconToolStripMenuItem";
+            this.smallIconToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.smallIconToolStripMenuItem.Text = "Small Icon";
+            this.smallIconToolStripMenuItem.Click += new System.EventHandler(this.smallIconToolStripMenuItem_Click);
+            // 
+            // orderByToolStripMenuItem
+            // 
+            this.orderByToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aSCToolStripMenuItem,
+            this.dESCToolStripMenuItem});
+            this.orderByToolStripMenuItem.Name = "orderByToolStripMenuItem";
+            this.orderByToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.orderByToolStripMenuItem.Text = "Order by";
+            // 
+            // aSCToolStripMenuItem
+            // 
+            this.aSCToolStripMenuItem.Name = "aSCToolStripMenuItem";
+            this.aSCToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
+            this.aSCToolStripMenuItem.Text = "ASC";
+            this.aSCToolStripMenuItem.Click += new System.EventHandler(this.aSCToolStripMenuItem_Click);
+            // 
+            // dESCToolStripMenuItem
+            // 
+            this.dESCToolStripMenuItem.Name = "dESCToolStripMenuItem";
+            this.dESCToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
+            this.dESCToolStripMenuItem.Text = "DESC";
+            this.dESCToolStripMenuItem.Click += new System.EventHandler(this.dESCToolStripMenuItem_Click);
+            // 
+            // groupToolStripMenuItem
+            // 
+            this.groupToolStripMenuItem.Name = "groupToolStripMenuItem";
+            this.groupToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.groupToolStripMenuItem.Text = "Group";
+            this.groupToolStripMenuItem.Click += new System.EventHandler(this.groupToolStripMenuItem_Click);
             // 
             // FrmCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 823);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
             this.Name = "FrmCustomers";
             this.Text = "FrmCustomers";
             this.Load += new System.EventHandler(this.FrmCustomers_Load);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,6 +216,13 @@ namespace homework
         private System.Windows.Forms.ListView listView1;
         internal System.Windows.Forms.ImageList ImageList1;
         internal System.Windows.Forms.ImageList ImageList2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem detailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem largerIconToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem smallIconToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orderByToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aSCToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dESCToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem groupToolStripMenuItem;
     }
 }

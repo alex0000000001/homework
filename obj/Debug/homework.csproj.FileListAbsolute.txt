@@ -43,3 +43,4 @@ C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmShow.resource
 C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmLogon.resources
 C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmCustomers.resources
 C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\ADO.NET.FrmImageFlags.resources
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.Frm_MyAlbum.resources
