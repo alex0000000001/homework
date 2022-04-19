@@ -53,7 +53,7 @@ namespace homework
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(listBox2.SelectedItems.ToString()); // 錯誤 todo
+           // MessageBox.Show(listBox2.SelectedValue.ToString()); // 錯誤 todo
             try
             {
                 SqlConnection conn = null;
@@ -63,10 +63,12 @@ namespace homework
                     SqlCommand command = new SqlCommand();
                     command.Connection = conn;
                     command.CommandText = "Insert into Photos(cityID,photo) values(@cityID,@photo)";
+                    
                     System.IO.MemoryStream ms = new System.IO.MemoryStream();
                     this.pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                     bytes = ms.GetBuffer();
-                    command.Parameters.Add("@cityID", SqlDbType.Int).Value =int.Parse(listBox2.SelectedItems.ToString());
+                    
+                    command.Parameters.Add("@cityID", SqlDbType.Int).Value =int.Parse(textBox1.Text);
                     command.Parameters.Add("@photo", SqlDbType.Image).Value = bytes;
                     conn.Open();
                     command.ExecuteNonQuery();
@@ -97,8 +99,8 @@ namespace homework
                         string y = $"{dataReader1["CityName"]}";
                         string x = $"{dataReader1["CityId"]}";
                         comboBox1.Items.Add(y);
+                        textBox1.Text = y;
                         //listBox2.Items.Add(x);
-                  
                     }
                 }
             }
@@ -115,22 +117,28 @@ namespace homework
                 SqlConnection conn = null;
                 using (conn = new SqlConnection(Settings.Default.PhotoConnectionString))
                 {
-                    listBox2.Items.Clear();
+                    textBox1.Text = "";
                     SqlCommand command = new SqlCommand();
                     command.Connection = conn;
                     command.CommandText = $"Select * from City123 where CityName='{comboBox1.Text}'";
                     conn.Open();
                     SqlDataReader dataReader1 = command.ExecuteReader();
                     dataReader1.Read();
-                    listBox2.Items.Add($"{dataReader1["CityId"]}");
-
-
+                    textBox1.Text = $"{dataReader1["CityId"]}";
+                   // listBox2.Items.Add($"{dataReader1["CityId"]}");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmShow frmShow = new FrmShow();
+            frmShow.Show();
 
         }
     }

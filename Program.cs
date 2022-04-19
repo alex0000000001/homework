@@ -21,7 +21,7 @@ namespace homework
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_MyAlbum());
+            Application.Run(new Quiz());
         }
     }
 }

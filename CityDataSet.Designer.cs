@@ -1661,26 +1661,26 @@ namespace homework.CityDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PhotoName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhotoName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Photos] ([PhotoID], [PhotoName], [Photo]) VALUES (@PhotoID, @P" +
-                "hotoName, @Photo);\r\nSELECT CityID, PhotoID, PhotoName, Photo FROM Photos WHERE (" +
-                "CityID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Photos] ([CityID], [PhotoName], [Photo]) VALUES (@CityID, @Pho" +
+                "toName, @Photo);\r\nSELECT CityID, PhotoID, PhotoName, Photo FROM Photos WHERE (Ph" +
+                "otoID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhotoID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhotoID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CityID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CityID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhotoName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhotoName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Photo", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Photo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Photos] SET [PhotoID] = @PhotoID, [PhotoName] = @PhotoName, [Photo] = @Photo WHERE (([CityID] = @Original_CityID) AND ([PhotoID] = @Original_PhotoID) AND ((@IsNull_PhotoName = 1 AND [PhotoName] IS NULL) OR ([PhotoName] = @Original_PhotoName)));
-SELECT CityID, PhotoID, PhotoName, Photo FROM Photos WHERE (CityID = @CityID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Photos] SET [CityID] = @CityID, [PhotoName] = @PhotoName, [Photo] = @Photo WHERE (([CityID] = @Original_CityID) AND ([PhotoID] = @Original_PhotoID) AND ((@IsNull_PhotoName = 1 AND [PhotoName] IS NULL) OR ([PhotoName] = @Original_PhotoName)));
+SELECT CityID, PhotoID, PhotoName, Photo FROM Photos WHERE (PhotoID = @PhotoID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhotoID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhotoID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CityID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CityID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhotoName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhotoName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Photo", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Photo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CityID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CityID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PhotoID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhotoID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PhotoName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhotoName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PhotoName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhotoName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CityID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CityID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhotoID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PhotoID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1788,8 +1788,8 @@ SELECT CityID, PhotoID, PhotoName, Photo FROM Photos WHERE (CityID = @CityID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int PhotoID, string PhotoName, byte[] Photo) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(PhotoID));
+        public virtual int Insert(int CityID, string PhotoName, byte[] Photo) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(CityID));
             if ((PhotoName == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -1822,8 +1822,8 @@ SELECT CityID, PhotoID, PhotoName, Photo FROM Photos WHERE (CityID = @CityID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int PhotoID, string PhotoName, byte[] Photo, int Original_CityID, int Original_PhotoID, string Original_PhotoName, int CityID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(PhotoID));
+        public virtual int Update(int CityID, string PhotoName, byte[] Photo, int Original_CityID, int Original_PhotoID, string Original_PhotoName, int PhotoID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(CityID));
             if ((PhotoName == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -1846,7 +1846,7 @@ SELECT CityID, PhotoID, PhotoName, Photo FROM Photos WHERE (CityID = @CityID)";
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_PhotoName));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(CityID));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(PhotoID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1867,8 +1867,8 @@ SELECT CityID, PhotoID, PhotoName, Photo FROM Photos WHERE (CityID = @CityID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string PhotoName, byte[] Photo, int Original_CityID, int Original_PhotoID, string Original_PhotoName, int CityID) {
-            return this.Update(Original_PhotoID, PhotoName, Photo, Original_CityID, Original_PhotoID, Original_PhotoName, CityID);
+        public virtual int Update(int CityID, string PhotoName, byte[] Photo, int Original_CityID, int Original_PhotoID, string Original_PhotoName) {
+            return this.Update(CityID, PhotoName, Photo, Original_CityID, Original_PhotoID, Original_PhotoName, Original_PhotoID);
         }
     }
     
