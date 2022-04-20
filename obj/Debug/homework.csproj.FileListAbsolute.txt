@@ -44,3 +44,6 @@ C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\ADO.NET.FrmImageFlags.res
 C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.Frm_MyAlbum.resources
 C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmShow.resources
 C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.Quiz.resources
+C:\ADO.NET\作業區\alex0000000001\homework\obj\Debug\homework.FrmMenu.resources
+C:\ADO.NET\作業區\alex0000000001\homework\bin\Debug\bin\Debug\Photo.mdf
+C:\ADO.NET\作業區\alex0000000001\homework\bin\Debug\bin\Debug\Photo_log.ldf

@@ -30,6 +30,43 @@ namespace homework
                 this.splitContainer2.Panel1.Controls.Add(x);
                 x.Click += X_Click;
             }
+            //=================================================
+            this.flowLayoutPanel3.AllowDrop = true;
+            this.flowLayoutPanel3.DragEnter += FlowLayoutPanel3_DragEnter;
+            this.flowLayoutPanel3.DragDrop += FlowLayoutPanel3_DragDrop;
+        }
+
+        private void FlowLayoutPanel3_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            for(int i = 0; i <= files.Length - 1; i++)
+            {
+                pictureBox = new PictureBox();
+                pictureBox.Image = Image.FromFile(files[i]);
+                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox.Width = 360;
+                pictureBox.Height = 240;
+                pictureBox.BorderStyle = BorderStyle.FixedSingle;
+                pictureBox.Padding = new Padding(4, 4, 4, 4);
+
+                pictureBox.Click += PictureBox_Click;
+                this.flowLayoutPanel3.Controls.Add(pictureBox);
+                 
+
+            }
+        }
+
+        private void PictureBox_Click(object sender, EventArgs e)
+        {
+            Form f = new Form();
+            f.BackgroundImage = ((PictureBox)sender).Image;
+            f.BackgroundImageLayout = ImageLayout.Stretch;
+            f.Show();
+        }
+
+        private void FlowLayoutPanel3_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
         }
 
         private void X_Click(object sender, EventArgs e)
@@ -56,24 +93,34 @@ namespace homework
            // MessageBox.Show(listBox2.SelectedValue.ToString()); // 錯誤 todo
             try
             {
-                SqlConnection conn = null;
-                byte[] bytes;
-                using (conn = new SqlConnection(Settings.Default.PhotoConnectionString))
+                if (comboBox1.Text == null)
                 {
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = conn;
-                    command.CommandText = "Insert into Photos(cityID,photo) values(@cityID,@photo)";
+
+                    MessageBox.Show("請選擇城市");
                     
-                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                    this.pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    bytes = ms.GetBuffer();
-                    
-                    command.Parameters.Add("@cityID", SqlDbType.Int).Value =int.Parse(textBox1.Text);
-                    command.Parameters.Add("@photo", SqlDbType.Image).Value = bytes;
-                    conn.Open();
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("圖片加入成功");
                 }
+                else
+                {
+                    SqlConnection conn = null;
+                    byte[] bytes;
+                    using (conn = new SqlConnection(Settings.Default.PhotoConnectionString))
+                    {
+                        SqlCommand command = new SqlCommand();
+                        command.Connection = conn;
+                        command.CommandText = "Insert into Photos(cityID,photo) values(@cityID,@photo)";
+
+                        System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                        this.pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        bytes = ms.GetBuffer();
+
+                        command.Parameters.Add("@cityID", SqlDbType.Int).Value = int.Parse(textBox1.Text);
+                        command.Parameters.Add("@photo", SqlDbType.Image).Value = bytes;
+                        conn.Open();
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("圖片加入成功");
+                    }
+                }
+               
             }
             catch (Exception ex)
             {

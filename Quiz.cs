@@ -58,22 +58,20 @@ namespace homework
                     {
                         treeNode = this.treeView1.Nodes[country];
                     }
-                    int a = 1;
                     if (treeNode.Nodes[city] == null)
                     {
                         
                         treeNodeChild = treeNode.Nodes.Add(city);
-                        treeNodeChild.Name = city;
+                        treeNodeChild.Name = city ;
                         
                     }
                     else
                     {
-                        treeNodeChild = treeNode.Nodes[city];
-                        treeNodeChild.Tag =a+1;
-
+                       treeNodeChild = treeNode.Nodes[city];
+                      //  treeNodeChild.Text = treeNode.Nodes.Count.ToString();
                     }
-
-
+                  //  treeNodeChild.Text += treeNodeChild.Nodes.Count;
+                    treeNode.Text = country +" (" + treeNode.Nodes.Count.ToString()+")";
                 }
             }
             catch(Exception ex)
@@ -99,6 +97,7 @@ namespace homework
 
             this.customersTableAdapter1.FillByFindcityname(this.nwDataSet1.Customers,cityname);
             dataGridView1.DataSource = this.nwDataSet1.Customers;
+            
             
             //SqlConnection conn = null;
             //conn = new SqlConnection(Settings.Default.NorthwindConnectionString);

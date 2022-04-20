@@ -79,6 +79,7 @@ namespace homework
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.textBox1);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(8);
             // 
             // splitContainer1.Panel2
             // 
@@ -195,6 +196,7 @@ namespace homework
             this.splitContainer3.Panel1.Controls.Add(this.label3);
             this.splitContainer3.Panel1.Controls.Add(this.comboBox1);
             this.splitContainer3.Panel1.Controls.Add(this.label2);
+            this.splitContainer3.Panel1.Padding = new System.Windows.Forms.Padding(4);
             // 
             // splitContainer3.Panel2
             // 
@@ -209,7 +211,7 @@ namespace homework
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(123, 28);
             this.btnAdd.TabIndex = 8;
-            this.btnAdd.Text = "button1";
+            this.btnAdd.Text = "確認新增";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -229,7 +231,7 @@ namespace homework
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("新細明體", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(241, 27);
+            this.label3.Location = new System.Drawing.Point(245, 31);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(243, 27);
@@ -249,7 +251,7 @@ namespace homework
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 32);
+            this.label2.Location = new System.Drawing.Point(22, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 15);
             this.label2.TabIndex = 4;
@@ -257,9 +259,13 @@ namespace homework
             // 
             // flowLayoutPanel3
             // 
+            this.flowLayoutPanel3.AutoScroll = true;
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.Gainsboro;
+            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(8);
             this.flowLayoutPanel3.Size = new System.Drawing.Size(941, 301);
             this.flowLayoutPanel3.TabIndex = 0;
             // 

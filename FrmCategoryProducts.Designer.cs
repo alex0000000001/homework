@@ -76,6 +76,7 @@ namespace homework
             // 
             this.listBox1.Font = new System.Drawing.Font("新細明體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.HorizontalScrollbar = true;
             this.listBox1.ItemHeight = 17;
             this.listBox1.Location = new System.Drawing.Point(85, 130);
             this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

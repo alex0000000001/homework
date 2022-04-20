@@ -42,7 +42,7 @@
   </xs:schema>
   <Products>
     <ProductID>1</ProductID>
-    <ProductName>Chai 1233333</ProductName>
+    <ProductName>Chai 123</ProductName>
     <SupplierID>1</SupplierID>
     <CategoryID>1</CategoryID>
     <QuantityPerUnit>10 boxes x 20 bags</QuantityPerUnit>
