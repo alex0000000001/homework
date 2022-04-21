@@ -97,6 +97,7 @@ namespace homework
 
             this.customersTableAdapter1.FillByFindcityname(this.nwDataSet1.Customers,cityname);
             dataGridView1.DataSource = this.nwDataSet1.Customers;
+            label1.Text = $"共{dataGridView1.Rows.Count-1}個"+"'"+treeNodeChild.Text+"'customers";
             
             
             //SqlConnection conn = null;

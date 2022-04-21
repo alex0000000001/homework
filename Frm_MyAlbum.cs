@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,7 @@ namespace homework
 
         private void FlowLayoutPanel3_DragDrop(object sender, DragEventArgs e)
         {
+
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             for(int i = 0; i <= files.Length - 1; i++)
             {
@@ -51,7 +53,25 @@ namespace homework
 
                 pictureBox.Click += PictureBox_Click;
                 this.flowLayoutPanel3.Controls.Add(pictureBox);
-                 
+
+                SqlConnection conn = null;
+                byte[] bytes;
+
+                using (conn = new SqlConnection(Settings.Default.PhotoConnectionString))
+                {
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = conn;
+                    command.CommandText = "Insert into Photos(cityID,photo) values(@cityID,@photo)";
+
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                    pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    bytes = ms.GetBuffer();
+
+                    command.Parameters.Add("@cityID", SqlDbType.Int).Value = int.Parse(textBox1.Text);
+                    command.Parameters.Add("@photo", SqlDbType.Image).Value = bytes;
+                    conn.Open();
+                    command.ExecuteNonQuery();
+                }
 
             }
         }
@@ -71,8 +91,60 @@ namespace homework
 
         private void X_Click(object sender, EventArgs e)
         {
-            
+            flowLayoutPanel1.Controls.Clear();
+            LinkLabel x = sender as LinkLabel;
+            if (x != null)
+            {
+                string cityN = x.Text;
+                ShowImage(cityN);
+            }
         }
+
+        private void ShowImage(string CityName)
+        {
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Settings.Default.PhotoConnectionString))
+                {
+                    SqlCommand command = new SqlCommand();
+                    command.CommandText = $"select Photo from Photos join City123 on Photos.cityid = City123.cityid where CityName='{CityName}'";
+                    command.Connection = conn;
+
+                    conn.Open();
+
+
+                    SqlDataReader dataReader = command.ExecuteReader();
+
+                    if (dataReader.HasRows)
+                    {
+                        while (dataReader.Read())
+                        {
+                            pictureBox = new PictureBox();
+                            byte[] bytes = (byte[])dataReader["Photo"];
+                            System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes);
+                            this.flowLayoutPanel1.Controls.Add(pictureBox);
+                            this.pictureBox.Image = Image.FromStream(ms);
+                            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                            pictureBox.Width = 360;
+                            pictureBox.Height = 240;
+                            pictureBox.BorderStyle = BorderStyle.FixedSingle;
+                            pictureBox.Padding = new Padding(4, 4, 4, 4);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Record");
+                    }
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         PictureBox pictureBox = new PictureBox();
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
@@ -90,37 +162,27 @@ namespace homework
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-           // MessageBox.Show(listBox2.SelectedValue.ToString()); // 錯誤 todo
             try
             {
-                if (comboBox1.Text == null)
+                SqlConnection conn = null;
+                byte[] bytes;
+                
+                using (conn = new SqlConnection(Settings.Default.PhotoConnectionString))
                 {
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = conn;
+                    command.CommandText = "Insert into Photos(cityID,photo) values(@cityID,@photo)";
 
-                    MessageBox.Show("請選擇城市");
-                    
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                    pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    bytes = ms.GetBuffer();
+
+                    command.Parameters.Add("@cityID", SqlDbType.Int).Value = int.Parse(textBox1.Text);
+                    command.Parameters.Add("@photo", SqlDbType.Image).Value = bytes;
+                    conn.Open();
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("圖片加入成功");
                 }
-                else
-                {
-                    SqlConnection conn = null;
-                    byte[] bytes;
-                    using (conn = new SqlConnection(Settings.Default.PhotoConnectionString))
-                    {
-                        SqlCommand command = new SqlCommand();
-                        command.Connection = conn;
-                        command.CommandText = "Insert into Photos(cityID,photo) values(@cityID,@photo)";
-
-                        System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                        this.pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        bytes = ms.GetBuffer();
-
-                        command.Parameters.Add("@cityID", SqlDbType.Int).Value = int.Parse(textBox1.Text);
-                        command.Parameters.Add("@photo", SqlDbType.Image).Value = bytes;
-                        conn.Open();
-                        command.ExecuteNonQuery();
-                        MessageBox.Show("圖片加入成功");
-                    }
-                }
-               
             }
             catch (Exception ex)
             {
@@ -130,7 +192,7 @@ namespace homework
 
         private void Frm_MyAlbum_Load(object sender, EventArgs e)
         {
-
+            
             try
             {
                 SqlConnection conn = null;
@@ -149,7 +211,9 @@ namespace homework
                         textBox1.Text = y;
                         //listBox2.Items.Add(x);
                     }
+                    
                 }
+                comboBox1.SelectedIndex = 0;
             }
             catch (Exception ex)
             {

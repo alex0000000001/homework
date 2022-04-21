@@ -25,6 +25,7 @@ namespace homework
             FrmAdventureWork frmAdventureWork = new FrmAdventureWork();
             frmAdventureWork.TopLevel = false;
             splitContainer2.Panel2.Controls.Add(frmAdventureWork);
+            frmAdventureWork.Dock = DockStyle.Fill;
             frmAdventureWork.Show();
         }
 
@@ -35,7 +36,9 @@ namespace homework
             Form1 form1 = new Form1();
             form1.TopLevel = false;
             splitContainer2.Panel2.Controls.Add(form1);
+            form1.Dock = DockStyle.Fill;
             form1.Show();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,6 +47,7 @@ namespace homework
             FrmCategoryProducts frmCategoryProducts = new FrmCategoryProducts();
             frmCategoryProducts.TopLevel = false;
             splitContainer2.Panel2.Controls.Add(frmCategoryProducts);
+            frmCategoryProducts.Dock = DockStyle.Fill;
             frmCategoryProducts.Show();
         }
 
@@ -53,6 +57,7 @@ namespace homework
             FrmDataSet結構 frmDataSet = new FrmDataSet結構();
             frmDataSet.TopLevel = false;
             splitContainer2.Panel2.Controls.Add(frmDataSet);
+            frmDataSet.Dock = DockStyle.Fill;
             frmDataSet.Show();
         }
 
@@ -62,6 +67,7 @@ namespace homework
             FrmCustomers frmCustomers = new FrmCustomers();
             frmCustomers.TopLevel = false;
             splitContainer2.Panel2.Controls.Add(frmCustomers);
+            frmCustomers.Dock = DockStyle.Fill;
             frmCustomers.Show();
         }
 
@@ -71,6 +77,7 @@ namespace homework
             Frm_MyAlbum frm_MyAlbum = new Frm_MyAlbum();
             frm_MyAlbum.TopLevel = false;
             splitContainer2.Panel2.Controls.Add(frm_MyAlbum);
+            frm_MyAlbum.Dock = DockStyle.Fill;
             frm_MyAlbum.Show();
         }
 
@@ -80,6 +87,7 @@ namespace homework
             Quiz quiz = new Quiz();
             quiz.TopLevel = false;
             splitContainer2.Panel2.Controls.Add(quiz);
+            quiz.Dock = DockStyle.Fill;
             quiz.Show();
         }
     }

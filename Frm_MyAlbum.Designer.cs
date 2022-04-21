@@ -29,6 +29,7 @@ namespace homework
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -36,7 +37,6 @@ namespace homework
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -49,6 +49,9 @@ namespace homework
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.city123TableAdapter1 = new homework.CityDataSetTableAdapters.City123TableAdapter();
             this.cityDataSet1 = new homework.CityDataSet();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.photosDataSet1 = new homework.PhotosDataSet();
+            this.photosTableAdapter1 = new homework.PhotosDataSetTableAdapters.PhotosTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -64,6 +67,8 @@ namespace homework
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cityDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photosDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -83,9 +88,10 @@ namespace homework
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(959, 651);
-            this.splitContainer1.SplitterDistance = 165;
+            this.splitContainer1.Size = new System.Drawing.Size(956, 897);
+            this.splitContainer1.SplitterDistance = 177;
             this.splitContainer1.TabIndex = 0;
             // 
             // button1
@@ -123,7 +129,7 @@ namespace homework
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(955, 478);
+            this.tabControl1.Size = new System.Drawing.Size(952, 712);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -132,7 +138,7 @@ namespace homework
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(947, 449);
+            this.tabPage1.Size = new System.Drawing.Size(944, 683);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "瀏覽相片";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -145,30 +151,18 @@ namespace homework
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.listBox1);
             this.splitContainer2.Panel2.Controls.Add(this.flowLayoutPanel1);
-            this.splitContainer2.Size = new System.Drawing.Size(941, 443);
-            this.splitContainer2.SplitterDistance = 264;
+            this.splitContainer2.Size = new System.Drawing.Size(938, 677);
+            this.splitContainer2.SplitterDistance = 263;
             this.splitContainer2.TabIndex = 0;
-            // 
-            // listBox1
-            // 
-            this.listBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(0, 244);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(673, 199);
-            this.listBox1.TabIndex = 1;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Silver;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(673, 242);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(671, 677);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // tabPage2
@@ -177,7 +171,7 @@ namespace homework
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(947, 449);
+            this.tabPage2.Size = new System.Drawing.Size(944, 683);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "新增相片管理";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -200,9 +194,10 @@ namespace homework
             // 
             // splitContainer3.Panel2
             // 
+            this.splitContainer3.Panel2.AutoScroll = true;
             this.splitContainer3.Panel2.Controls.Add(this.flowLayoutPanel3);
-            this.splitContainer3.Size = new System.Drawing.Size(941, 443);
-            this.splitContainer3.SplitterDistance = 138;
+            this.splitContainer3.Size = new System.Drawing.Size(938, 677);
+            this.splitContainer3.SplitterDistance = 142;
             this.splitContainer3.TabIndex = 0;
             // 
             // btnAdd
@@ -266,7 +261,7 @@ namespace homework
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(8);
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(941, 301);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(938, 531);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // openFileDialog1
@@ -282,11 +277,20 @@ namespace homework
             this.cityDataSet1.DataSetName = "CityDataSet";
             this.cityDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // photosDataSet1
+            // 
+            this.photosDataSet1.DataSetName = "PhotosDataSet";
+            this.photosDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // photosTableAdapter1
+            // 
+            this.photosTableAdapter1.ClearBeforeFill = true;
+            // 
             // Frm_MyAlbum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 651);
+            this.ClientSize = new System.Drawing.Size(956, 897);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Frm_MyAlbum";
             this.Text = "Frm_MyAlbum";
@@ -308,6 +312,8 @@ namespace homework
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cityDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photosDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,12 +333,14 @@ namespace homework
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
         private CityDataSetTableAdapters.City123TableAdapter city123TableAdapter1;
         private CityDataSet cityDataSet1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private PhotosDataSet photosDataSet1;
+        private PhotosDataSetTableAdapters.PhotosTableAdapter photosTableAdapter1;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
