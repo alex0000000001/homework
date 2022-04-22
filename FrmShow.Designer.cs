@@ -30,27 +30,27 @@ namespace homework
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmShow));
             System.Windows.Forms.Label cityIDLabel;
             System.Windows.Forms.Label photoIDLabel;
             System.Windows.Forms.Label photoNameLabel;
             System.Windows.Forms.Label photoLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmShow));
             this.photosDataSet = new homework.PhotosDataSet();
             this.photosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.photosTableAdapter = new homework.PhotosDataSetTableAdapters.PhotosTableAdapter();
             this.tableAdapterManager = new homework.PhotosDataSetTableAdapters.TableAdapterManager();
             this.photosBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.photosBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.photosDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +74,42 @@ namespace homework
             ((System.ComponentModel.ISupportInitialize)(this.photosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // cityIDLabel
+            // 
+            cityIDLabel.AutoSize = true;
+            cityIDLabel.Location = new System.Drawing.Point(710, 106);
+            cityIDLabel.Name = "cityIDLabel";
+            cityIDLabel.Size = new System.Drawing.Size(54, 15);
+            cityIDLabel.TabIndex = 2;
+            cityIDLabel.Text = "City ID:";
+            // 
+            // photoIDLabel
+            // 
+            photoIDLabel.AutoSize = true;
+            photoIDLabel.Location = new System.Drawing.Point(710, 137);
+            photoIDLabel.Name = "photoIDLabel";
+            photoIDLabel.Size = new System.Drawing.Size(63, 15);
+            photoIDLabel.TabIndex = 4;
+            photoIDLabel.Text = "Photo ID:";
+            // 
+            // photoNameLabel
+            // 
+            photoNameLabel.AutoSize = true;
+            photoNameLabel.Location = new System.Drawing.Point(710, 168);
+            photoNameLabel.Name = "photoNameLabel";
+            photoNameLabel.Size = new System.Drawing.Size(81, 15);
+            photoNameLabel.TabIndex = 6;
+            photoNameLabel.Text = "Photo Name:";
+            // 
+            // photoLabel
+            // 
+            photoLabel.AutoSize = true;
+            photoLabel.Location = new System.Drawing.Point(710, 196);
+            photoLabel.Name = "photoLabel";
+            photoLabel.Size = new System.Drawing.Size(44, 15);
+            photoLabel.TabIndex = 8;
+            photoLabel.Text = "Photo:";
             // 
             // photosDataSet
             // 
@@ -127,13 +163,38 @@ namespace homework
             this.photosBindingNavigator.TabIndex = 0;
             this.photosBindingNavigator.Text = "bindingNavigator1";
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Text = "加入新的";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 24);
+            this.bindingNavigatorCountItem.Text = "/{0}";
+            this.bindingNavigatorCountItem.ToolTipText = "項目總數";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Text = "刪除";
+            // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem.Text = "移到最前面";
             // 
             // bindingNavigatorMovePreviousItem
@@ -142,34 +203,28 @@ namespace homework
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "移到上一個";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "位置";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "目前的位置";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 19);
-            this.bindingNavigatorCountItem.Text = "/{0}";
-            this.bindingNavigatorCountItem.ToolTipText = "項目總數";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -191,33 +246,15 @@ namespace homework
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorAddNewItem.Text = "加入新的";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorDeleteItem.Text = "刪除";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // photosBindingNavigatorSaveItem
             // 
             this.photosBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.photosBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("photosBindingNavigatorSaveItem.Image")));
             this.photosBindingNavigatorSaveItem.Name = "photosBindingNavigatorSaveItem";
-            this.photosBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.photosBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
             this.photosBindingNavigatorSaveItem.Text = "儲存資料";
             this.photosBindingNavigatorSaveItem.Click += new System.EventHandler(this.photosBindingNavigatorSaveItem_Click);
             // 
@@ -271,15 +308,6 @@ namespace homework
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 125;
             // 
-            // cityIDLabel
-            // 
-            cityIDLabel.AutoSize = true;
-            cityIDLabel.Location = new System.Drawing.Point(710, 106);
-            cityIDLabel.Name = "cityIDLabel";
-            cityIDLabel.Size = new System.Drawing.Size(54, 15);
-            cityIDLabel.TabIndex = 2;
-            cityIDLabel.Text = "City ID:";
-            // 
             // cityIDTextBox
             // 
             this.cityIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.photosBindingSource, "CityID", true));
@@ -287,15 +315,6 @@ namespace homework
             this.cityIDTextBox.Name = "cityIDTextBox";
             this.cityIDTextBox.Size = new System.Drawing.Size(100, 25);
             this.cityIDTextBox.TabIndex = 3;
-            // 
-            // photoIDLabel
-            // 
-            photoIDLabel.AutoSize = true;
-            photoIDLabel.Location = new System.Drawing.Point(710, 137);
-            photoIDLabel.Name = "photoIDLabel";
-            photoIDLabel.Size = new System.Drawing.Size(63, 15);
-            photoIDLabel.TabIndex = 4;
-            photoIDLabel.Text = "Photo ID:";
             // 
             // photoIDTextBox
             // 
@@ -305,15 +324,6 @@ namespace homework
             this.photoIDTextBox.Size = new System.Drawing.Size(100, 25);
             this.photoIDTextBox.TabIndex = 5;
             // 
-            // photoNameLabel
-            // 
-            photoNameLabel.AutoSize = true;
-            photoNameLabel.Location = new System.Drawing.Point(710, 168);
-            photoNameLabel.Name = "photoNameLabel";
-            photoNameLabel.Size = new System.Drawing.Size(81, 15);
-            photoNameLabel.TabIndex = 6;
-            photoNameLabel.Text = "Photo Name:";
-            // 
             // photoNameTextBox
             // 
             this.photoNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.photosBindingSource, "PhotoName", true));
@@ -321,15 +331,6 @@ namespace homework
             this.photoNameTextBox.Name = "photoNameTextBox";
             this.photoNameTextBox.Size = new System.Drawing.Size(100, 25);
             this.photoNameTextBox.TabIndex = 7;
-            // 
-            // photoLabel
-            // 
-            photoLabel.AutoSize = true;
-            photoLabel.Location = new System.Drawing.Point(710, 196);
-            photoLabel.Name = "photoLabel";
-            photoLabel.Size = new System.Drawing.Size(44, 15);
-            photoLabel.TabIndex = 8;
-            photoLabel.Text = "Photo:";
             // 
             // photoPictureBox
             // 

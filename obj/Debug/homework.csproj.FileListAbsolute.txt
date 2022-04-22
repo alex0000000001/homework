@@ -72,3 +72,5 @@ C:\ADO.NET\作業區\alex002\obj\Debug\homework.csproj.GenerateResource.cache
 C:\ADO.NET\作業區\alex002\obj\Debug\homework.csproj.CoreCompileInputs.cache
 C:\ADO.NET\作業區\alex002\obj\Debug\homework.exe
 C:\ADO.NET\作業區\alex002\obj\Debug\homework.pdb
+C:\ADO.NET\作業區\alex002\obj\Debug\homework.FrmPictureShow.resources
+C:\ADO.NET\作業區\alex002\obj\Debug\homework.test2.resources

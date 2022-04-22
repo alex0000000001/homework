@@ -37,6 +37,9 @@ namespace homework
             this.flowLayoutPanel3.DragDrop += FlowLayoutPanel3_DragDrop;
         }
 
+
+
+
         private void FlowLayoutPanel3_DragDrop(object sender, DragEventArgs e)
         {
 
@@ -78,9 +81,9 @@ namespace homework
 
         private void PictureBox_Click(object sender, EventArgs e)
         {
-            Form f = new Form();
+            FrmPictureShow f = new FrmPictureShow();
             f.BackgroundImage = ((PictureBox)sender).Image;
-            f.BackgroundImageLayout = ImageLayout.Stretch;
+            f.BackgroundImageLayout = ImageLayout.Zoom;
             f.Show();
         }
 
@@ -98,6 +101,7 @@ namespace homework
                 string cityN = x.Text;
                 ShowImage(cityN);
             }
+
         }
 
         private void ShowImage(string CityName)
@@ -105,8 +109,12 @@ namespace homework
 
             try
             {
+                photosTableAdapter1.Fill(photosDataSet1.Photos);
+                
+
                 using (SqlConnection conn = new SqlConnection(Settings.Default.PhotoConnectionString))
                 {
+
                     SqlCommand command = new SqlCommand();
                     command.CommandText = $"select Photo from Photos join City123 on Photos.cityid = City123.cityid where CityName='{CityName}'";
                     command.Connection = conn;
@@ -126,11 +134,13 @@ namespace homework
                             this.flowLayoutPanel1.Controls.Add(pictureBox);
                             this.pictureBox.Image = Image.FromStream(ms);
                             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                            pictureBox.Width = 360;
-                            pictureBox.Height = 240;
+                            pictureBox.Width = 240;
+                            pictureBox.Height = 180;
                             pictureBox.BorderStyle = BorderStyle.FixedSingle;
                             pictureBox.Padding = new Padding(4, 4, 4, 4);
-                        }
+                            pictureBox.Click += PictureBox_Click;
+                            
+                        } 
                     }
                     else
                     {
@@ -192,7 +202,9 @@ namespace homework
 
         private void Frm_MyAlbum_Load(object sender, EventArgs e)
         {
-            
+            // TODO: 這行程式碼會將資料載入 'photosDataSet1.City123' 資料表。您可以視需要進行移動或移除。
+            this.city123TableAdapter.Fill(this.photosDataSet1.City123);
+            this.photosTableAdapter1.Fill(this.photosDataSet1.Photos);
             try
             {
                 SqlConnection conn = null;
@@ -250,6 +262,15 @@ namespace homework
         {
             FrmShow frmShow = new FrmShow();
             frmShow.Show();
+
+        }
+
+        private void city123DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string whereCityID = city123DataGridView.CurrentRow.Cells[0].Value.ToString();
+            this.photosTableAdapter1.FillByWhereCityID(photosDataSet1.Photos,int.Parse(whereCityID));
+            photosBindingSource.DataSource = photosDataSet1.Photos;
+            photosDataGridView.DataSource = photosBindingSource.DataSource;
 
         }
     }

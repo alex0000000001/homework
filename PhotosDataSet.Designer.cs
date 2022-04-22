@@ -1292,7 +1292,7 @@ SELECT CityID, PhotoID, PhotoName, Photo FROM Photos WHERE (PhotoID = @PhotoID)"
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT CityID, PhotoID, PhotoName, Photo FROM dbo.Photos";
@@ -1302,6 +1302,12 @@ SELECT CityID, PhotoID, PhotoName, Photo FROM Photos WHERE (PhotoID = @PhotoID)"
             this._commandCollection[1].CommandText = "SELECT  Photos.Photo\r\nFROM      Photos INNER JOIN\r\n                   City123 ON " +
                 "Photos.CityID = City123.CityId\r\nWHERE   (City123.CityName = \'@CityName\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT  CityID, PhotoID, PhotoName, Photo\r\nFROM      Photos\r\nWHERE   (CityID = @C" +
+                "ityID)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CityID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CityID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1347,6 +1353,32 @@ SELECT CityID, PhotoID, PhotoName, Photo FROM Photos WHERE (PhotoID = @PhotoID)"
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual PhotosDataSet.PhotosDataTable GetDataBy() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            PhotosDataSet.PhotosDataTable dataTable = new PhotosDataSet.PhotosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByWhereCityID(PhotosDataSet.PhotosDataTable dataTable, int CityID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CityID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual PhotosDataSet.PhotosDataTable GetDataBy1(int CityID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CityID));
             PhotosDataSet.PhotosDataTable dataTable = new PhotosDataSet.PhotosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
