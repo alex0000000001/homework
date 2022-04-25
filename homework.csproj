@@ -150,6 +150,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NWDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PhotosDataSet.cs">
+      <DependentUpon>PhotosDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PhotosDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -249,7 +252,6 @@
     <None Include="NWDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>NWDataSet.Designer.cs</LastGenOutput>
     </None>
     <None Include="NWDataSet.xss">
       <DependentUpon>NWDataSet.xsd</DependentUpon>

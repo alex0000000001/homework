@@ -42,7 +42,7 @@ namespace homework
 
         private void FlowLayoutPanel3_DragDrop(object sender, DragEventArgs e)
         {
-
+           
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             for(int i = 0; i <= files.Length - 1; i++)
             {
@@ -109,9 +109,7 @@ namespace homework
 
             try
             {
-                photosTableAdapter1.Fill(photosDataSet1.Photos);
                 
-
                 using (SqlConnection conn = new SqlConnection(Settings.Default.PhotoConnectionString))
                 {
 
@@ -158,46 +156,95 @@ namespace homework
         PictureBox pictureBox = new PictureBox();
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
-            //this.openFileDialog1.Filter = "";
-            if(openFileDialog1.ShowDialog()== DialogResult.OK)
+            
+            
+            FolderBrowserDialog folder = new FolderBrowserDialog();
+            if (folder.ShowDialog() == DialogResult.OK)
             {
-               
-                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                pictureBox.Width = 200;
-                pictureBox.Height = 160;
-                pictureBox.Image = Image.FromFile(this.openFileDialog1.FileName);
-                this.flowLayoutPanel3.Controls.Add(pictureBox);
+                
+                this.flowLayoutPanel3.Controls.Clear();
+
+                string[] files = Directory.GetFiles(folder.SelectedPath);
+                
+                foreach (string file in files)
+                {
+                    if (file.EndsWith("jpg") || file.EndsWith("png") || file.EndsWith("jpeg"))
+                    {
+                        pictureBox = new PictureBox();
+                        pictureBox.Image = Image.FromFile(file);
+                        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pictureBox.Width = 180;
+                        pictureBox.Height = 120;
+                        pictureBox.BorderStyle = BorderStyle.FixedSingle;
+                        flowLayoutPanel3.Controls.Add(pictureBox);
+
+                        SqlConnection conn = null;
+                        byte[] bytes;
+
+                        using (conn = new SqlConnection(Settings.Default.PhotoConnectionString))
+                        {
+                            SqlCommand command = new SqlCommand();
+                            command.Connection = conn;
+                            command.CommandText = "Insert into Photos(cityID,photo) values(@cityID,@photo)";
+
+                            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                            pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            bytes = ms.GetBuffer();
+
+                            command.Parameters.Add("@cityID", SqlDbType.Int).Value = int.Parse(textBox1.Text);
+                            command.Parameters.Add("@photo", SqlDbType.Image).Value = bytes;
+                            conn.Open();
+                            command.ExecuteNonQuery();
+
+                        }
+                    }
+                    else return;
+                }
+                
             }
+
+
+            //openFileDialog1.Multiselect = true;
+            //openFileDialog1.Filter = "JPG|*.jpg|JPEG|*.jpeg|GIF|*.gif|PNG|*.png";
+            //DialogResult dialog = openFileDialog1.ShowDialog();
+            //if(dialog == DialogResult.OK)
+            //{
+            //    string[] files = openFileDialog1.FileNames;
+            //    foreach(string img in files)
+            //    {
+            //        pictureBox = new PictureBox();
+            //        pictureBox.Image = Image.FromFile(img);
+            //        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            //        pictureBox.Width = 180;
+            //        pictureBox.Height = 120;
+            //        pictureBox.BorderStyle = BorderStyle.FixedSingle;
+            //        this.flowLayoutPanel3.Controls.Add(pictureBox);
+
+            //        SqlConnection conn = null;
+            //        byte[] bytes;
+
+            //        using (conn = new SqlConnection(Settings.Default.PhotoConnectionString))
+            //        {
+            //            SqlCommand command = new SqlCommand();
+            //            command.Connection = conn;
+            //            command.CommandText = "Insert into Photos(cityID,photo) values(@cityID,@photo)";
+
+            //            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            //            pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            //            bytes = ms.GetBuffer();
+
+            //            command.Parameters.Add("@cityID", SqlDbType.Int).Value = int.Parse(textBox1.Text);
+            //            command.Parameters.Add("@photo", SqlDbType.Image).Value = bytes;
+            //            conn.Open();
+            //            command.ExecuteNonQuery();
+            //        }
+            //    }
+            //}
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            try
-            {
-                SqlConnection conn = null;
-                byte[] bytes;
-                
-                using (conn = new SqlConnection(Settings.Default.PhotoConnectionString))
-                {
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = conn;
-                    command.CommandText = "Insert into Photos(cityID,photo) values(@cityID,@photo)";
 
-                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                    pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    bytes = ms.GetBuffer();
-
-                    command.Parameters.Add("@cityID", SqlDbType.Int).Value = int.Parse(textBox1.Text);
-                    command.Parameters.Add("@photo", SqlDbType.Image).Value = bytes;
-                    conn.Open();
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("圖片加入成功");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void Frm_MyAlbum_Load(object sender, EventArgs e)
@@ -271,7 +318,17 @@ namespace homework
             this.photosTableAdapter1.FillByWhereCityID(photosDataSet1.Photos,int.Parse(whereCityID));
             photosBindingSource.DataSource = photosDataSet1.Photos;
             photosDataGridView.DataSource = photosBindingSource.DataSource;
+            photosBindingNavigator.BindingSource =photosBindingSource; 
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "JPG|*.jpg|JPEG|*.jpeg|GIF|*.gif|PNG|*.png";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                photoPictureBox.Image = Image.FromFile(this.openFileDialog1.FileName);
+            }
         }
     }
 }

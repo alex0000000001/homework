@@ -1300,8 +1300,9 @@ SELECT CityID, PhotoID, PhotoName, Photo FROM Photos WHERE (PhotoID = @PhotoID)"
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT  Photos.Photo\r\nFROM      Photos INNER JOIN\r\n                   City123 ON " +
-                "Photos.CityID = City123.CityId\r\nWHERE   (City123.CityName = \'@CityName\')";
+                "Photos.CityID = City123.CityId\r\nWHERE   (City123.CityName =@CityName)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CityName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CityName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT  CityID, PhotoID, PhotoName, Photo\r\nFROM      Photos\r\nWHERE   (CityID = @C" +
@@ -1338,8 +1339,14 @@ SELECT CityID, PhotoID, PhotoName, Photo FROM Photos WHERE (PhotoID = @PhotoID)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByPhoto(PhotosDataSet.PhotosDataTable dataTable) {
+        public virtual int FillByPhoto(PhotosDataSet.PhotosDataTable dataTable, string CityName) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((CityName == null)) {
+                throw new global::System.ArgumentNullException("CityName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(CityName));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1351,8 +1358,14 @@ SELECT CityID, PhotoID, PhotoName, Photo FROM Photos WHERE (PhotoID = @PhotoID)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual PhotosDataSet.PhotosDataTable GetDataBy() {
+        public virtual PhotosDataSet.PhotosDataTable GetDataBy(string CityName) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((CityName == null)) {
+                throw new global::System.ArgumentNullException("CityName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(CityName));
+            }
             PhotosDataSet.PhotosDataTable dataTable = new PhotosDataSet.PhotosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
