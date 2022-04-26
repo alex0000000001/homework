@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SortOrder = System.Windows.Forms.SortOrder;
+//using SortOrder = System.Windows.Forms.SortOrder;
 
 namespace homework
 {
@@ -274,14 +274,15 @@ namespace homework
 
         private void aSCToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listView1.Sorting = SortOrder.Ascending;
+           
+            listView1.Sorting = System.Windows.Forms.SortOrder.Descending;
             listView1.Sort();
             
         }
 
         private void dESCToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listView1.Sorting = SortOrder.Descending;
+             listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             listView1.Sort();
         }
 

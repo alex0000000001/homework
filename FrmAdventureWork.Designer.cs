@@ -200,9 +200,8 @@ namespace homework
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(177, 116);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 15);
+            this.label4.Size = new System.Drawing.Size(0, 15);
             this.label4.TabIndex = 96;
-            this.label4.Text = "label4";
             // 
             // button16
             // 
@@ -251,7 +250,7 @@ namespace homework
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(445, 99);
+            this.comboBox1.Location = new System.Drawing.Point(442, 113);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 23);
@@ -261,7 +260,7 @@ namespace homework
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(396, 103);
+            this.label2.Location = new System.Drawing.Point(396, 116);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
@@ -340,7 +339,7 @@ namespace homework
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 629);
+            this.ClientSize = new System.Drawing.Size(976, 629);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.bindingNavigator1);
