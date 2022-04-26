@@ -42,9 +42,9 @@ namespace homework
 
         private void FlowLayoutPanel3_DragDrop(object sender, DragEventArgs e)
         {
-           
+
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            for(int i = 0; i <= files.Length - 1; i++)
+            for (int i = 0; i <= files.Length - 1; i++)
             {
                 pictureBox = new PictureBox();
                 pictureBox.Image = Image.FromFile(files[i]);
@@ -101,15 +101,12 @@ namespace homework
                 string cityN = x.Text;
                 ShowImage(cityN);
             }
-
         }
 
         private void ShowImage(string CityName)
         {
-
             try
-            {
-                
+            {  
                 using (SqlConnection conn = new SqlConnection(Settings.Default.PhotoConnectionString))
                 {
 
@@ -145,7 +142,6 @@ namespace homework
                         MessageBox.Show("No Record");
                     }
                 }
-
             }
             catch(Exception ex)
             {
@@ -156,19 +152,17 @@ namespace homework
         PictureBox pictureBox = new PictureBox();
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
-            
-            
-            FolderBrowserDialog folder = new FolderBrowserDialog();
-            if (folder.ShowDialog() == DialogResult.OK)
-            {
-                
+                FolderBrowserDialog folder = new FolderBrowserDialog();
+                if (folder.ShowDialog() == DialogResult.OK)
+                {
+
                 this.flowLayoutPanel3.Controls.Clear();
 
                 string[] files = Directory.GetFiles(folder.SelectedPath);
-                
+
                 foreach (string file in files)
                 {
-                    if (file.EndsWith("jpg") || file.EndsWith("png") || file.EndsWith("jpeg"))
+                    if (file.EndsWith(".jpg") || file.EndsWith(".png") || file.EndsWith(".jpeg"))
                     {
                         pictureBox = new PictureBox();
                         pictureBox.Image = Image.FromFile(file);
@@ -195,57 +189,14 @@ namespace homework
                             command.Parameters.Add("@photo", SqlDbType.Image).Value = bytes;
                             conn.Open();
                             command.ExecuteNonQuery();
-
                         }
                     }
                     else return;
+
                 }
-                
             }
-
-
-            //openFileDialog1.Multiselect = true;
-            //openFileDialog1.Filter = "JPG|*.jpg|JPEG|*.jpeg|GIF|*.gif|PNG|*.png";
-            //DialogResult dialog = openFileDialog1.ShowDialog();
-            //if(dialog == DialogResult.OK)
-            //{
-            //    string[] files = openFileDialog1.FileNames;
-            //    foreach(string img in files)
-            //    {
-            //        pictureBox = new PictureBox();
-            //        pictureBox.Image = Image.FromFile(img);
-            //        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            //        pictureBox.Width = 180;
-            //        pictureBox.Height = 120;
-            //        pictureBox.BorderStyle = BorderStyle.FixedSingle;
-            //        this.flowLayoutPanel3.Controls.Add(pictureBox);
-
-            //        SqlConnection conn = null;
-            //        byte[] bytes;
-
-            //        using (conn = new SqlConnection(Settings.Default.PhotoConnectionString))
-            //        {
-            //            SqlCommand command = new SqlCommand();
-            //            command.Connection = conn;
-            //            command.CommandText = "Insert into Photos(cityID,photo) values(@cityID,@photo)";
-
-            //            System.IO.MemoryStream ms = new System.IO.MemoryStream();
-            //            pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-            //            bytes = ms.GetBuffer();
-
-            //            command.Parameters.Add("@cityID", SqlDbType.Int).Value = int.Parse(textBox1.Text);
-            //            command.Parameters.Add("@photo", SqlDbType.Image).Value = bytes;
-            //            conn.Open();
-            //            command.ExecuteNonQuery();
-            //        }
-            //    }
-            //}
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Frm_MyAlbum_Load(object sender, EventArgs e)
         {
@@ -268,7 +219,6 @@ namespace homework
                         string x = $"{dataReader1["CityId"]}";
                         comboBox1.Items.Add(y);
                         textBox1.Text = y;
-                        //listBox2.Items.Add(x);
                     }
                     
                 }
@@ -295,7 +245,6 @@ namespace homework
                     SqlDataReader dataReader1 = command.ExecuteReader();
                     dataReader1.Read();
                     textBox1.Text = $"{dataReader1["CityId"]}";
-                   // listBox2.Items.Add($"{dataReader1["CityId"]}");
                 }
             }
             catch (Exception ex)
@@ -314,12 +263,12 @@ namespace homework
 
         private void city123DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string whereCityID = city123DataGridView.CurrentRow.Cells[0].Value.ToString();
-            this.photosTableAdapter1.FillByWhereCityID(photosDataSet1.Photos,int.Parse(whereCityID));
-            photosBindingSource.DataSource = photosDataSet1.Photos;
-            photosDataGridView.DataSource = photosBindingSource.DataSource;
-            photosBindingNavigator.BindingSource =photosBindingSource; 
-
+            //string whereCityID = city123DataGridView.CurrentRow.Cells[0].Value.ToString();
+            //this.photosTableAdapter1.FillByWhereCityID(photosDataSet1.Photos,int.Parse(whereCityID));
+            //photosBindingSource.DataSource = photosDataSet1.Photos;
+            //photosDataGridView.DataSource = photosBindingSource.DataSource;
+            //photosBindingNavigator.BindingSource =photosBindingSource; 
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -329,6 +278,15 @@ namespace homework
             {
                 photoPictureBox.Image = Image.FromFile(this.openFileDialog1.FileName);
             }
+        }
+
+        private void cityIdTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            string whereCityID = city123DataGridView.CurrentRow.Cells[0].Value.ToString();
+            this.photosTableAdapter1.FillByWhereCityID(photosDataSet1.Photos, int.Parse(whereCityID));
+            photosBindingSource.DataSource = photosDataSet1.Photos;
+            photosDataGridView.DataSource = photosBindingSource.DataSource;
+            photosBindingNavigator.BindingSource = photosBindingSource;
         }
     }
 }

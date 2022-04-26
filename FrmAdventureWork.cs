@@ -71,27 +71,6 @@ namespace homework
 
             this.dataGridView1.DataSource = this.bindingSource1;
             bindingNavigator1.BindingSource =this.bindingSource1;
-
-            // 某日腳踏車 //待修改
-            //if (DateTime.Compare(a1, last) < 0) 
-            //{
-            //    this.productPhotoTableAdapter1.FillByDatetime(this.adDateSet1.ProductPhoto,a1,a2);
-
-            //    this.bindingSource1.DataSource = this.adDateSet1.ProductPhoto;
-
-            //    this.dataGridView1.DataSource = this.bindingSource1;
-            //}
-            //else
-            //{
-            //    MessageBox.Show("選擇日期超出範圍");
-            //}     
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //DataTable table = this.adDateSet1.ProductPhoto;
-            //var maxRow = table.Select("ModifiedDate = Max(ModifiedDate)");
-            //MessageBox.Show(maxRow.ToString());
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -100,7 +79,6 @@ namespace homework
             this.productPhotoTableAdapter1.FillByYearsssssssssssssssssss(this.adDateSet1.ProductPhoto, y);
             dataGridView1.DataSource = this.adDateSet1.ProductPhoto;
 
-            
         }
 
         SqlConnection conn = null;

@@ -162,7 +162,6 @@ namespace homework
                         this.comboBox1.Items.Add($"{DataReader["country"]}");
                     }
                     this.comboBox1.Items.Add("AllCountry");
-                    //comboBox1.SelectedIndex = 0;
                 }
             }
             catch (Exception ex)
@@ -231,7 +230,7 @@ namespace homework
                             {
                                 lvi.BackColor = Color.LightGreen;
                             }
-                            for (int i = 0; i <= DataReader.FieldCount - 1; i++)
+                            for (int i = 1; i <= DataReader.FieldCount - 1; i++)
                             {
                                 if (DataReader.IsDBNull(i))
                                 {
@@ -276,11 +275,14 @@ namespace homework
         private void aSCToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listView1.Sorting = SortOrder.Ascending;
+            listView1.Sort();
+            
         }
 
         private void dESCToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listView1.Sorting = SortOrder.Descending;
+            listView1.Sort();
         }
 
         private void groupToolStripMenuItem_Click(object sender, EventArgs e)

@@ -38,7 +38,6 @@ namespace homework
             System.Windows.Forms.Label cityNameLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_MyAlbum));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -115,7 +114,6 @@ namespace homework
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -148,7 +146,7 @@ namespace homework
             // cityIDLabel
             // 
             cityIDLabel.AutoSize = true;
-            cityIDLabel.Location = new System.Drawing.Point(35, 554);
+            cityIDLabel.Location = new System.Drawing.Point(40, 76);
             cityIDLabel.Name = "cityIDLabel";
             cityIDLabel.Size = new System.Drawing.Size(54, 15);
             cityIDLabel.TabIndex = 0;
@@ -157,7 +155,7 @@ namespace homework
             // photoIDLabel
             // 
             photoIDLabel.AutoSize = true;
-            photoIDLabel.Location = new System.Drawing.Point(35, 585);
+            photoIDLabel.Location = new System.Drawing.Point(40, 107);
             photoIDLabel.Name = "photoIDLabel";
             photoIDLabel.Size = new System.Drawing.Size(63, 15);
             photoIDLabel.TabIndex = 2;
@@ -166,7 +164,7 @@ namespace homework
             // photoNameLabel
             // 
             photoNameLabel.AutoSize = true;
-            photoNameLabel.Location = new System.Drawing.Point(35, 616);
+            photoNameLabel.Location = new System.Drawing.Point(40, 138);
             photoNameLabel.Name = "photoNameLabel";
             photoNameLabel.Size = new System.Drawing.Size(81, 15);
             photoNameLabel.TabIndex = 4;
@@ -175,7 +173,7 @@ namespace homework
             // photoLabel
             // 
             photoLabel.AutoSize = true;
-            photoLabel.Location = new System.Drawing.Point(252, 551);
+            photoLabel.Location = new System.Drawing.Point(266, 94);
             photoLabel.Name = "photoLabel";
             photoLabel.Size = new System.Drawing.Size(44, 15);
             photoLabel.TabIndex = 6;
@@ -184,7 +182,7 @@ namespace homework
             // cityIdLabel1
             // 
             cityIdLabel1.AutoSize = true;
-            cityIdLabel1.Location = new System.Drawing.Point(40, 563);
+            cityIdLabel1.Location = new System.Drawing.Point(38, 141);
             cityIdLabel1.Name = "cityIdLabel1";
             cityIdLabel1.Size = new System.Drawing.Size(51, 15);
             cityIdLabel1.TabIndex = 1;
@@ -193,7 +191,7 @@ namespace homework
             // cityNameLabel
             // 
             cityNameLabel.AutoSize = true;
-            cityNameLabel.Location = new System.Drawing.Point(40, 594);
+            cityNameLabel.Location = new System.Drawing.Point(38, 172);
             cityNameLabel.Name = "cityNameLabel";
             cityNameLabel.Size = new System.Drawing.Size(72, 15);
             cityNameLabel.TabIndex = 3;
@@ -209,7 +207,6 @@ namespace homework
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
             this.splitContainer1.Panel1.Controls.Add(this.textBox1);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(8);
@@ -219,25 +216,16 @@ namespace homework
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Size = new System.Drawing.Size(1145, 945);
-            this.splitContainer1.SplitterDistance = 160;
+            this.splitContainer1.SplitterDistance = 169;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(854, 11);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 0;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(666, 34);
+            this.textBox1.Location = new System.Drawing.Point(468, 77);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 25);
             this.textBox1.TabIndex = 4;
+            this.textBox1.Visible = false;
             // 
             // label1
             // 
@@ -258,7 +246,7 @@ namespace homework
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1141, 777);
+            this.tabControl1.Size = new System.Drawing.Size(1141, 768);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -267,7 +255,7 @@ namespace homework
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1133, 748);
+            this.tabPage1.Size = new System.Drawing.Size(1133, 739);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "瀏覽相片";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -281,7 +269,7 @@ namespace homework
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.flowLayoutPanel1);
-            this.splitContainer2.Size = new System.Drawing.Size(1127, 742);
+            this.splitContainer2.Size = new System.Drawing.Size(1127, 733);
             this.splitContainer2.SplitterDistance = 315;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -291,7 +279,7 @@ namespace homework
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(808, 742);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(808, 733);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // tabPage2
@@ -300,7 +288,7 @@ namespace homework
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1133, 748);
+            this.tabPage2.Size = new System.Drawing.Size(1133, 739);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "新增相片管理";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -324,8 +312,8 @@ namespace homework
             // 
             this.splitContainer3.Panel2.AutoScroll = true;
             this.splitContainer3.Panel2.Controls.Add(this.flowLayoutPanel3);
-            this.splitContainer3.Size = new System.Drawing.Size(1127, 742);
-            this.splitContainer3.SplitterDistance = 153;
+            this.splitContainer3.Size = new System.Drawing.Size(1127, 733);
+            this.splitContainer3.SplitterDistance = 151;
             this.splitContainer3.TabIndex = 0;
             // 
             // btnOpenFile
@@ -379,7 +367,7 @@ namespace homework
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(8);
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1127, 585);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1127, 578);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // tabPage3
@@ -388,7 +376,7 @@ namespace homework
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1133, 748);
+            this.tabPage3.Size = new System.Drawing.Size(1133, 739);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tools";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -423,7 +411,7 @@ namespace homework
             this.splitContainer4.Panel2.Controls.Add(this.photoNameTextBox);
             this.splitContainer4.Panel2.Controls.Add(photoLabel);
             this.splitContainer4.Panel2.Controls.Add(this.photoPictureBox);
-            this.splitContainer4.Size = new System.Drawing.Size(1127, 742);
+            this.splitContainer4.Size = new System.Drawing.Size(1127, 733);
             this.splitContainer4.SplitterDistance = 330;
             this.splitContainer4.TabIndex = 0;
             // 
@@ -556,15 +544,16 @@ namespace homework
             // cityIdTextBox1
             // 
             this.cityIdTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.city123BindingSource, "CityId", true));
-            this.cityIdTextBox1.Location = new System.Drawing.Point(118, 560);
+            this.cityIdTextBox1.Location = new System.Drawing.Point(116, 138);
             this.cityIdTextBox1.Name = "cityIdTextBox1";
             this.cityIdTextBox1.Size = new System.Drawing.Size(100, 25);
             this.cityIdTextBox1.TabIndex = 2;
+            this.cityIdTextBox1.TextChanged += new System.EventHandler(this.cityIdTextBox1_TextChanged);
             // 
             // cityNameTextBox
             // 
             this.cityNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.city123BindingSource, "CityName", true));
-            this.cityNameTextBox.Location = new System.Drawing.Point(118, 591);
+            this.cityNameTextBox.Location = new System.Drawing.Point(116, 169);
             this.cityNameTextBox.Name = "cityNameTextBox";
             this.cityNameTextBox.Size = new System.Drawing.Size(100, 25);
             this.cityNameTextBox.TabIndex = 4;
@@ -604,7 +593,7 @@ namespace homework
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(622, 579);
+            this.button2.Location = new System.Drawing.Point(628, 88);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 52);
             this.button2.TabIndex = 10;
@@ -752,11 +741,11 @@ namespace homework
             this.photoNameDataGridViewTextBoxColumn,
             this.photoDataGridViewImageColumn});
             this.photosDataGridView.DataSource = this.photosBindingSource;
-            this.photosDataGridView.Location = new System.Drawing.Point(38, 144);
+            this.photosDataGridView.Location = new System.Drawing.Point(30, 247);
             this.photosDataGridView.Name = "photosDataGridView";
             this.photosDataGridView.RowHeadersWidth = 51;
             this.photosDataGridView.RowTemplate.Height = 27;
-            this.photosDataGridView.Size = new System.Drawing.Size(723, 386);
+            this.photosDataGridView.Size = new System.Drawing.Size(723, 299);
             this.photosDataGridView.TabIndex = 8;
             // 
             // cityIDDataGridViewTextBoxColumn
@@ -795,7 +784,7 @@ namespace homework
             // cityIDTextBox
             // 
             this.cityIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.photosBindingSource, "CityID", true));
-            this.cityIDTextBox.Location = new System.Drawing.Point(122, 551);
+            this.cityIDTextBox.Location = new System.Drawing.Point(127, 73);
             this.cityIDTextBox.Name = "cityIDTextBox";
             this.cityIDTextBox.Size = new System.Drawing.Size(100, 25);
             this.cityIDTextBox.TabIndex = 1;
@@ -803,7 +792,7 @@ namespace homework
             // photoIDTextBox
             // 
             this.photoIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.photosBindingSource, "PhotoID", true));
-            this.photoIDTextBox.Location = new System.Drawing.Point(122, 582);
+            this.photoIDTextBox.Location = new System.Drawing.Point(127, 104);
             this.photoIDTextBox.Name = "photoIDTextBox";
             this.photoIDTextBox.Size = new System.Drawing.Size(100, 25);
             this.photoIDTextBox.TabIndex = 3;
@@ -811,7 +800,7 @@ namespace homework
             // photoNameTextBox
             // 
             this.photoNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.photosBindingSource, "PhotoName", true));
-            this.photoNameTextBox.Location = new System.Drawing.Point(122, 613);
+            this.photoNameTextBox.Location = new System.Drawing.Point(127, 135);
             this.photoNameTextBox.Name = "photoNameTextBox";
             this.photoNameTextBox.Size = new System.Drawing.Size(100, 25);
             this.photoNameTextBox.TabIndex = 5;
@@ -819,7 +808,7 @@ namespace homework
             // photoPictureBox
             // 
             this.photoPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.photosBindingSource, "Photo", true));
-            this.photoPictureBox.Location = new System.Drawing.Point(325, 550);
+            this.photoPictureBox.Location = new System.Drawing.Point(316, 45);
             this.photoPictureBox.Name = "photoPictureBox";
             this.photoPictureBox.Size = new System.Drawing.Size(270, 180);
             this.photoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -872,7 +861,6 @@ namespace homework
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -977,7 +965,6 @@ namespace homework
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private CityDataSetTableAdapters.PhotosTableAdapter photosTableAdapter2;
     }
 }

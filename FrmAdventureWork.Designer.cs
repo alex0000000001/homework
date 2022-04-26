@@ -31,7 +31,6 @@ namespace homework
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdventureWork));
-            this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -58,7 +57,6 @@ namespace homework
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.nwDataSet1 = new homework.NWDataSet();
-            this.button3 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productPhotoTableAdapter1 = new homework.AdDateSetTableAdapters.ProductPhotoTableAdapter();
             this.adDateSet1 = new homework.AdDateSet();
@@ -69,17 +67,6 @@ namespace homework
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.adDateSet1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(579, 41);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 99;
-            this.button2.Text = "排序";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label3
             // 
@@ -336,17 +323,6 @@ namespace homework
             this.nwDataSet1.DataSetName = "NWDataSet";
             this.nwDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(371, 173);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(183, 28);
-            this.button3.TabIndex = 110;
-            this.button3.Text = "test";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // bindingSource1
             // 
             this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
@@ -365,9 +341,7 @@ namespace homework
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 629);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.label4);
@@ -397,8 +371,6 @@ namespace homework
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
@@ -425,7 +397,6 @@ namespace homework
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private NWDataSet nwDataSet1;
-        private System.Windows.Forms.Button button3;
         private AdDateSetTableAdapters.ProductPhotoTableAdapter productPhotoTableAdapter1;
         private AdDateSet adDateSet1;
         private System.Windows.Forms.BindingSource bindingSource1;

@@ -48,6 +48,8 @@ namespace homework
                     conn.Open();
                     Command.ExecuteNonQuery();
                     MessageBox.Show("Insert Member Successfully");
+
+        
                 }
             }
             catch (Exception ex)
@@ -78,8 +80,8 @@ namespace homework
                 if (DataReader.HasRows)
                 {
                     MessageBox.Show($"{username} : 登入成功");
-                    FrmCustomers frmCustomers = new FrmCustomers();
-                    frmCustomers.Show();
+                    FrmMenu frmMenu = new FrmMenu();
+                    frmMenu.Show();
                 }
                 else
                 {
